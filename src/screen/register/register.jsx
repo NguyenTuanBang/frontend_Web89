@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 const Register = () => {
-    const apiLink = 'http://localhost:8080/register';
+    const apiLink = `${import.meta.env.VITE_URL_API}/register`;
     const navigate = useNavigate();
     const [error, setError] = useState(null);
 

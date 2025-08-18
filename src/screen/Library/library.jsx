@@ -25,7 +25,7 @@ export default function Library({ user }) {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/genres/");
+        const res = await axios.get(`${import.meta.env.VITE_URL_API}/genres/`);
         setGenres(res.data.data || []);
       } catch (err) {
         console.error("Lỗi khi lấy danh sách genre:", err);
@@ -42,11 +42,11 @@ export default function Library({ user }) {
       let response;
       if (!selectedGenre) {
         response = await axios.get(
-          `http://localhost:8080/books/getAll?pageNumber=${page}&pageSize=${pageSize}`
+          `${import.meta.env.VITE_URL_API}/books/getAll?pageNumber=${page}&pageSize=${pageSize}`
         );
       } else {
         response = await axios.get(
-          `http://localhost:8080/books/getByGenre?genre=${selectedGenre}&pageNumber=${page}&pageSize=${pageSize}`
+          `${import.meta.env.VITE_URL_API}/books/getByGenre?genre=${selectedGenre}&pageNumber=${page}&pageSize=${pageSize}`
         );
       }
 

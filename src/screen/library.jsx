@@ -19,7 +19,7 @@ export default function Library({user}) {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8080/books/getAll?pageNumber=${page}&pageSize=${pageSize}`
+        `${import.meta.env.VITE_URL_API}/books/getAll?pageNumber=${page}&pageSize=${pageSize}`
       );
 
       setBooks(response.data.data);

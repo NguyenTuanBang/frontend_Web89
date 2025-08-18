@@ -1,8 +1,9 @@
 import axios from "axios";
 import { message } from "antd";
 
+
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8080", // đổi theo BE của bạn
+  baseURL: import.meta.env.VITE_URL_API, // đổi theo BE của bạn
 });
 
 // Thêm token vào header mỗi request

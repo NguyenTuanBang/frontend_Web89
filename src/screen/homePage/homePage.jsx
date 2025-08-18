@@ -11,7 +11,7 @@ export default function HomePage() {
   const [topBooks, setTopBooks] = useState([]);
   const [mostFavour, setMostFavour] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
-  const baseURL = "http://localhost:8080/books";
+  const baseURL = `${import.meta.env.VITE_URL_API}/books`;
   const navigate = useNavigate();
 
   useEffect(() => {
