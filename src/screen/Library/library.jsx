@@ -25,6 +25,7 @@ export default function Library({ user }) {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
+        // const res = await axios.get(`${import.meta.env.VITE_URL_API_Test}/genres/`);
         const res = await axios.get(`${import.meta.env.VITE_URL_API}/genres/`);
         setGenres(res.data.data || []);
       } catch (err) {
@@ -40,6 +41,15 @@ export default function Library({ user }) {
     setLoading(true);
     try {
       let response;
+      // if (!selectedGenre) {
+      //   response = await axios.get(
+      //     `${import.meta.env.VITE_URL_API_Test}/books/getAll?pageNumber=${page}&pageSize=${pageSize}`
+      //   );
+      // } else {
+      //   response = await axios.get(
+      //     `${import.meta.env.VITE_URL_API_Test}/books/getByGenre?genre=${selectedGenre}&pageNumber=${page}&pageSize=${pageSize}`
+      //   );
+      // }
       if (!selectedGenre) {
         response = await axios.get(
           `${import.meta.env.VITE_URL_API}/books/getAll?pageNumber=${page}&pageSize=${pageSize}`

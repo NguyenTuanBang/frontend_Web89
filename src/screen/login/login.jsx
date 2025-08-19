@@ -7,6 +7,7 @@ import axios from "axios";
 
 
 const Login = ({setUser}) => {
+    // const apiLink = `${import.meta.env.VITE_URL_API_Test}/login`;
     const apiLink = `${import.meta.env.VITE_URL_API}/login`;
     const navigate = useNavigate();
     const [error, setError] = useState(null);
@@ -21,7 +22,10 @@ const Login = ({setUser}) => {
             localStorage.setItem("token", res.data.token);
             setError(null);
             // nếu không thì gọi check-token để lấy user
-            const userRes = await axios.get(`${import.meta.env.VITE_URL_API}/users/check-token`, {
+            // const userRes = await axios.get(`${import.meta.env.VITE_URL_API_Test}/users/getProfile`, {
+            //     headers: { Authorization: `Bearer ${res.data.token}` }
+            // });
+            const userRes = await axios.get(`${import.meta.env.VITE_URL_API}/users/getProfile`, {
                 headers: { Authorization: `Bearer ${res.data.token}` }
             });
             setUser(userRes.data.data);

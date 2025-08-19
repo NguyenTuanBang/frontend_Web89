@@ -6,6 +6,11 @@ export const getUserFromLocalStorage = async () => {
   }
 
   try {
+    // const response = await fetch(`${import.meta.env.VITE_URL_API_Test}/users/getProfile`, {
+    //   headers: {
+    //     'Authorization': `Bearer ${token}`,
+    //   },
+    // });
     const response = await fetch(`${import.meta.env.VITE_URL_API}/users/getProfile`, {
       headers: {
         'Authorization': `Bearer ${token}`,

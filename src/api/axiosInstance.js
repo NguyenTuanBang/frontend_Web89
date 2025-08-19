@@ -4,6 +4,7 @@ import { message } from "antd";
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_URL_API, // đổi theo BE của bạn
+  // baseURL: import.meta.env., // đổi theo BE của bạn
 });
 
 // Thêm token vào header mỗi request

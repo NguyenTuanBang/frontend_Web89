@@ -12,7 +12,9 @@ const UserCard = ({ user, setUser }) => {
     setAvatarUrl(user?.avatar || null);
 
     if (!user?.avatar) {
-      fetch("https://iceberg.example.com/random-avatar")
+      fetch(`https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(
+          user.username || "guest"
+        )}`)
         .then((res) => res.json())
         .then((data) => setAvatarUrl(data?.url || null))
         .catch(() => setAvatarUrl(null));

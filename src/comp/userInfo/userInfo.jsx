@@ -5,6 +5,7 @@ import axiosInstance from "../../api/axiosInstance";
 ; // dùng axios instance
 
 export default function Information({ user , setUser }) {
+  console.log(user)
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [savedValues, setSavedValues] = useState({});

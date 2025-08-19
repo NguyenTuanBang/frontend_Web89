@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 const { Title, Text } = Typography;
 
 function RequestCard({ request }) {
-  const { content, returnDate, isReturn, isResponse, reply } = request;
+  const { content, returnDate, isReturn, isRespone, reply } = request;
   const isOverdue = returnDate ? new Date(returnDate) < new Date() : false;
 
   return (
@@ -51,11 +51,19 @@ function RequestCard({ request }) {
       </div>
 
       {/* Trạng thái phản hồi */}
-      <Text>
-        {isResponse
-          ? reply
-          : "Vui lòng đến thư viện để hoàn thành bước tiếp"}
-      </Text>
+      <div style={{ marginTop: 8 }}>
+        {isRespone ? (
+          <Tag
+            color={reply === "Accepted" ? "green" : "red"}
+            style={{ fontWeight: "bold", padding: "4px 8px" }}
+          >
+            {reply === "Accepted" ? "Accepted" : "Rejected"}
+          </Tag>
+        ) : (
+          <Text type="secondary">Vui lòng đến thư viện để hoàn thành bước tiếp</Text>
+        )}
+      </div>
+
     </Card>
   );
 }

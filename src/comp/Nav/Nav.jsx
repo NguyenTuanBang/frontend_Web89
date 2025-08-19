@@ -9,9 +9,9 @@ const Navbar = ({ user, setUser, loading }) => {
   console.log(user)
   const avatarUrl =
     user?.avatar ||
-    `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(
-      user?.username || 'User'
-    )}`;
+    `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(
+          user?.username || "guest"
+        )}`;
 
   const handleLogout = () => {
     localStorage.removeItem("token")// xóa user trong context và token,
