@@ -27,9 +27,9 @@ export default function BookDetail({ user }) {
     const handleRent = async () => {
         const confirmed = window.confirm(`Bạn có chắc muốn mượn cuốn "${book.title}"?`);
         if (!confirmed) return;
-        if(user.role ==='user'){
+        if(user.role ==='User'){
             alert("Bạn không có quyền mượn sách, vui lòng nhập đầy đủ thông tin để sử dụng dịch vụ.");
-            navigate("/myProfile/info");
+            
             return
         }
 
@@ -47,7 +47,8 @@ export default function BookDetail({ user }) {
             alert("Yêu cầu mượn sách thành công, vui lòng đợi");
         } catch (err) {
             console.error(err);
-            alert(err.response?.data?.message || "Có lỗi xảy ra khi mượn sách.");
+            alert(`${err.response?.data?.message || "Có lỗi xảy ra khi mượn sách."} Vui lòng điền đầy đủ thông tin cá nhân.`);
+            navigate("/myProfile/info");
         }
     };
 
